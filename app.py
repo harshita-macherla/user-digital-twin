@@ -7,21 +7,16 @@ st.title("🔐 User Digital Twin - Insider Threat Detection")
 
 # Data Preview
 st.header("📊 Data Preview")
-st.text(df.head().to_string())
+st.dataframe(df.head())
 
 # Suspicious Activities
 st.header("🚨 Suspicious Activities")
 anomalies = df[df['anomaly'] == -1]
-st.text(
-    anomalies[['user','hour','total_recipients','attachments','risk_score','reason']]
-    .head(20)
-    .to_string()
+st.dataframe(
+    anomalies[['user','hour','total_recipients','attachments','risk_score','reason']].head(20)
 )
 
 # Top Risky Activities
 st.header("🔥 Top Risky Activities")
 top = df.sort_values(by='risk_score', ascending=False).head(10)
-st.text(
-    top[['user','risk_score','reason']]
-    .to_string()
-)
+st.dataframe(top[['user','risk_score','reason']])
