@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 
-df = pd.read_csv("processed_email.csv")
+df = pd.read_csv("processed_sample.csv")
 
 st.title("🔐 User Digital Twin - Insider Threat Detection")
 
